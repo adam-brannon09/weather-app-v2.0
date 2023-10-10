@@ -8,12 +8,16 @@ function App() {
   return (
     <>
       <Router>
-        <Routes>
-          <Route path="/" element={<Welcome />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/not-found" element={<NotFound />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="flex flex-col justify-between h-screen">
+          <main className="container mx-auto px-3 pb-12">
+            <Routes>
+              <Route path="/" element={<Welcome />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/not-found" element={<NotFound />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+        </div>
       </Router>
     </>
   );
