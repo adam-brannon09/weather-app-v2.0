@@ -24,7 +24,7 @@ export const OpenWeatherProvider = ({ children }) => {
             q: city,
         });
 
-        const response = await fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${city}`, {
+        const response = await fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${params}`, {
             headers: {
                 'X-RapidAPI-Key': '3c8f6ec58amsh29c21ed13e0f1e0p1dca98jsn6fe4d39b0681',
                 'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
@@ -32,6 +32,7 @@ export const OpenWeatherProvider = ({ children }) => {
         })
 
         const data = await response.json();
+        console.log('open weather context line 36')
         console.log(data)
 
 

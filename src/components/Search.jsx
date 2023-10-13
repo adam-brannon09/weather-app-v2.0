@@ -11,7 +11,7 @@ function Search() {
     const handleSubmit = (e) => {
         e.preventDefault()
         getWeather(city)
-        console.log(data)
+        console.log(weather + " search component line 14")
         setCity("")
     }
 
