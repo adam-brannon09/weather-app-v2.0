@@ -2,11 +2,12 @@ import Dashboard from "./pages/Dashboard";
 import Welcome from "./pages/Welcome";
 import NotFound from "./pages/NotFound";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { OpenWeatherProvider } from "./openweather/OpenWeatherContext";
 
 
 function App() {
   return (
-    <>
+    <OpenWeatherProvider>
       <Router>
         <div className="flex flex-col justify-between h-screen">
           <main className="container mx-auto px-3 pb-12">
@@ -19,7 +20,7 @@ function App() {
           </main>
         </div>
       </Router>
-    </>
+    </OpenWeatherProvider>
   );
 }
 
