@@ -1,58 +1,92 @@
 import { useContext } from 'react'
 import OpenWeatherContext from '../openweather/OpenWeatherContext'
-import weatherIcon from '../assets/weather.png'
-import PropTypes from 'prop-types'
+import TempIcon from '../assets/temp.svg'
+import WindIcon from '../assets/wind.svg'
+
+
 function Forecast() {
 
     const { weather } = useContext(OpenWeatherContext)
+    console.log({ weather })
+    const date = new Date()
+    const year = date.getFullYear()
+    const month = date.toLocaleString("default", { month: "long" });
+    const day = date.getDate()
+    const temp = weather?.current?.temp_f ?? ''
+    const city = weather?.location?.name ?? ''
+    const state = weather?.location?.region ?? ''
+    const windSpeed = weather?.current?.wind_mph ?? ''
+    const windDirection = weather?.current?.wind_dir ?? ''
+    const windGust = weather?.current?.gust_mph ?? ''
+    const feelsLike = weather?.current?.feelslike_f ?? ''
+    const humidity = weather?.current?.humidity ?? ''
+    const conditions = weather?.current?.condition?.text ?? ''
+    const forecastIcon = weather?.current?.condition?.icon ?? ''
+    const uv = weather?.current?.uv ?? ''
+    const precipitation = weather?.current?.precip_in ?? ''
+    const visibility = weather?.current?.vis_miles ?? ''
 
+    if (weather) {
+        return (
 
+            <div className="card card-side bg-base-100 shadow-xl">
+                <div className="card-body">
+                    <h2 className="card-title">{month} {day}, {year}</h2>
+                    <p className="text-5xl pb-5">{city}, {state}</p>
 
+                    <h3 className="text-4xl">{conditions} </h3>
+                    <img src={forecastIcon} style={{ width: "70px" }} alt="" />
 
+                    <div className="stats shadow">
 
-    return (
-        <div className="card card-side bg-base-100 shadow-xl">
-
-            <div className="card-body">
-                <h2 className="card-title">City Name and State</h2>
-                <p>Date</p>
-                <div className="stats shadow">
-
-                    <div className="stat">
-                        <div className="stat-figure text-secondary">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <div className="stat">
+                            <div className="stat-figure text-secondary">
+                                <img src={TempIcon} alt="temp icon" style={{ width: "50px" }} />
+                            </div>
+                            <div className="stat-title">Current Temperature</div>
+                            <div className="stat-value">{temp} °F</div>
+                            <div className="stat-title mt-3">Feels Like</div>
+                            <div className="stat-value">{feelsLike} °F</div>
+                            <div className="stat-title mt-3"> Humidity</div>
+                            <div className="stat-value">{humidity} %</div>
                         </div>
-                        <div className="stat-title"></div>
-                        <div className="stat-value">31K</div>
-                        <div className="stat-desc">Jan 1st - Feb 1st</div>
+
+                        <div className="stat">
+                            <div className="stat-figure">
+                                <img className="" src={WindIcon} alt="temp icon" style={{ width: "50px" }} />
+                            </div>
+                            <div className="stat-title">Wind Speed</div>
+                            <div className="stat-value">{windSpeed} mph </div>
+                            <div className="stat-title mt-3">Wind Direction</div>
+                            <div className="stat-value">{windDirection}</div>
+                            <div className="stat-title mt-3">Wind Gust</div>
+                            <div className="stat-value">{windGust} mph</div>
+                        </div>
+
+                        <div className="stat">
+                            <div className="stat-figure">
+                                <img className="" src={TempIcon} alt="temp icon" style={{ width: "50px" }} />
+                            </div>
+                            <div className="stat-title">Precipitation</div>
+                            <div className="stat-value">{precipitation}" last 24 hr </div>
+                            <div className="stat-title">Visibility</div>
+                            <div className="stat-value">{visibility} mi</div>
+                            <div className="stat-title">UV Index</div>
+                            <div className="stat-value">{uv}</div>
+
+                        </div>
+
                     </div>
 
-                    <div className="stat">
-                        <div className="stat-figure text-secondary">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
-                        </div>
-                        <div className="stat-title">New Users</div>
-                        <div className="stat-value">4,200</div>
-                        <div className="stat-desc">↗︎ 400 (22%)</div>
-                    </div>
-
-                    <div className="stat">
-                        <div className="stat-figure text-secondary">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
-                        </div>
-                        <div className="stat-title">New Registers</div>
-                        <div className="stat-value">1,200</div>
-                        <div className="stat-desc">↘︎ 90 (14%)</div>
-                    </div>
-
-                </div>
-
-                <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Add To Favorites</button>
+                    {/* <div className="card-actions justify-end">
+                        <button className="btn btn-primary">Add To Favorites</button>
+                    </div> */}
                 </div>
             </div>
-        </div>
-    )
+        )
+    } else {
+        return (<div>Please Enter A City</div>)
+    }
 }
 
 export default Forecast

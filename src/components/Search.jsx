@@ -1,19 +1,27 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import OpenWeatherContext from "../openweather/OpenWeatherContext"
 
 
 function Search() {
     const [city, setCity] = useState("")
 
-    const { getWeather, weather, data } = useContext(OpenWeatherContext)
+    const { getWeather } = useContext(OpenWeatherContext)
 
     const handleChange = (e) => setCity(e.target.value)
     const handleSubmit = (e) => {
         e.preventDefault()
-        getWeather(city)
-        console.log(weather + " search component line 14")
-        setCity("")
+        console.log(city)
+        if (!city) {
+            alert("Please enter a city")
+        } else {
+            console.log(city)
+            getWeather(city)
+        }
     }
+
+    // useEffect(() => {
+    //     getWeather(city)
+    // }, [city])
 
 
     return (
@@ -25,7 +33,7 @@ function Search() {
                         <br />
                         <div className="join">
                             <input className="input input-bordered join-item" value={city} onChange={handleChange} placeholder="City" />
-                            <button className="btn btn-ghost join-item rounded-r-full" >Subscribe</button>
+                            <button className="btn btn-ghost join-item rounded-r-full"  >Search</button>
                         </div>
                         <p></p>
 

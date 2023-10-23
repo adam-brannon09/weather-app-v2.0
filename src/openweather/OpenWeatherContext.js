@@ -7,12 +7,10 @@ const OpenWeatherContext = createContext();
 //Create a provider component for the OpenWeatherContext
 export const OpenWeatherProvider = ({ children }) => {
     const initialState = {
-        weather: null,
+        weather: "",
         loading: true,
 
     };
-
-
     const [state, dispatch] = useReducer(openWeatherReducer, initialState);
 
     //Get Search Results
@@ -32,8 +30,8 @@ export const OpenWeatherProvider = ({ children }) => {
         })
 
         const data = await response.json();
-        console.log('open weather context line 36')
-        console.log(data)
+        // console.log('open weather context line 36')
+        // console.log(data)
 
 
 
