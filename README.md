@@ -55,7 +55,7 @@ To use the web-based version simply navigate to the deployed application [URL](h
 ## Demo
 
 
-<img src="../weather-app-v2.0/public/assets/wd2.gif" style="width:900px;height:auto">
+<img src="./src/assets/wd2.gif" style="width:900px;height:auto">
 
 Follow me to the [Deployed Application](https://weather-app-v2-0-92h91djsl-adam-brannons-projects.vercel.app/)
 
