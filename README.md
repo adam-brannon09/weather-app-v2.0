@@ -4,10 +4,11 @@
 <img src="https://forthebadge.com/images/badges/powered-by-coffee.svg" alt="coffee">
 <img src="https://forthebadge.com/images/badges/ctrl-c-ctrl-v.svg" alt="ctrl_c">
 <img src="https://forthebadge.com/images/badges/not-a-bug-a-feature.svg" alt="bug">
+
 </div>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
           
           
 # Weather Dashboard v2.0 
@@ -45,10 +46,9 @@ To use the web-based version simply navigate to the deployed application [URL]()
 ## Technologies
 
 <div style="display:flex; align-items:center">
-<img style="width:100px;height:auto;"><i class="devicon-javascript-plain" style=font-size:7rem></i></img>
-<img style="width:100px;height:auto;"><i class="devicon-react-original-wordmark" style=font-size:7rem></i></img>
-<img style="width:100px;height:auto;"><i class="devicon-tailwindcss-original-wordmark" style=font-size:9rem></i></img>
-          
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" style="width:100px;height:auto;padding:50px;"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" style="width:100px;height:auto;padding:50px;"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" style="width:100px;height:auto;padding:50px;color:white;"/>
 </div>          
 
 
