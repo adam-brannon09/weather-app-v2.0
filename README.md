@@ -40,7 +40,7 @@ No install required for the web-based version. To run the application locally, c
 
 ## Usage
 
-To use the web-based version simply navigate to the deployed application [URL]() and begin using the app in your browser.
+To use the web-based version simply navigate to the deployed application [URL](https://weather-app-v2-0-92h91djsl-adam-brannons-projects.vercel.app/) and begin using the app in your browser.
 
 
 ## Technologies
@@ -55,9 +55,9 @@ To use the web-based version simply navigate to the deployed application [URL]()
 ## Demo
 
 
-<img src="./src/assets/portfolio.gif" style="width:900px;height:auto">
+<img src="../weather-app-v2.0/public/assets/wd2.gif" style="width:900px;height:auto">
 
-Follow me to the [Deployed Application](https://github.com/adam-brannon09/weather-app-v2.0/)
+Follow me to the [Deployed Application](https://weather-app-v2-0-92h91djsl-adam-brannons-projects.vercel.app/)
 
 
 ## Contributors
@@ -70,7 +70,7 @@ Adam Brannon
 
 ## Feedback and Support
 
-If you encounter any issues while viewing my portfolio or have any suggestions for improvement, please [open an issue](https://github.com/adam-brannon09/react_portfolio/issues) on the GitHub repository. I appreciate your feedback and will address any concerns as soon as possible.
+If you encounter any issues while viewing Weather Dashboard v2.0 or have any suggestions for improvement, please [open an issue](https://github.com/adam-brannon09/weather-app-v2.0/issues) on the GitHub repository. I appreciate your feedback and will address any concerns as soon as possible.
 
 ## License
 
