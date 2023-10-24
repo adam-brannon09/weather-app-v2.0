@@ -13,13 +13,15 @@ export const OpenWeatherProvider = ({ children }) => {
     };
     const [state, dispatch] = useReducer(openWeatherReducer, initialState);
 
-    //Get Search Results
+
+    //Get search results using city name or city and state
 
     const getWeather = async (city) => {
         setLoading();
-
+        const country = 'USA United States of America'
         const params = new URLSearchParams({
-            q: city,
+            q: city + ',' + country,
+
         });
 
         const response = await fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${params}`, {
@@ -30,17 +32,12 @@ export const OpenWeatherProvider = ({ children }) => {
         })
 
         const data = await response.json();
-        // console.log('open weather context line 36')
-        // console.log(data)
-
-
+        console.log(data);
 
         dispatch({
             type: 'GET_WEATHER',
             payload: data,
         });
-
-
     }
 
     //Set Loading
@@ -49,7 +46,7 @@ export const OpenWeatherProvider = ({ children }) => {
     return (
         <OpenWeatherContext.Provider
             value={{
-                weather: state.weather,
+                ...state,
                 getWeather,
             }}>
             {children}

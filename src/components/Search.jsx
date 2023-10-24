@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react"
+import { useState, useContext } from "react"
 import OpenWeatherContext from "../openweather/OpenWeatherContext"
 
 
@@ -16,31 +16,26 @@ function Search() {
         } else {
             console.log(city)
             getWeather(city)
+            setCity("")
         }
     }
 
-    // useEffect(() => {
-    //     getWeather(city)
-    // }, [city])
-
 
     return (
-        <div>
+        <div className="mt-6">
             <form onSubmit={handleSubmit}>
                 <div className="form-control">
                     <div className="relative mb-10">
                         <label htmlFor="">Enter a City</label>
                         <br />
-                        <div className="join">
-                            <input className="input input-bordered join-item" value={city} onChange={handleChange} placeholder="City" />
-                            <button className="btn btn-ghost join-item rounded-r-full"  >Search</button>
+                        <div className="join tooltip" >
+                            <input className="input input-bordered join-item" value={city} onChange={handleChange} placeholder="City and State" />
+                            <button className="btn btn-ghost join-item rounded-r-full">Search</button>
                         </div>
-                        <p></p>
-
                     </div>
-
                 </div>
             </form>
+
 
         </div>
     )

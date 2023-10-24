@@ -2,7 +2,6 @@ import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Search from "../components/Search"
 import Forecast from "../components/Forecast"
-import Previous from "../components/Previous"
 
 
 function Dashboard() {
@@ -13,7 +12,6 @@ function Dashboard() {
                 <Header />
                 <Search />
                 <Forecast />
-                {/* <Previous /> */}
             </div>
             <Footer />
         </div>

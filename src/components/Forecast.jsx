@@ -2,11 +2,12 @@ import { useContext } from 'react'
 import OpenWeatherContext from '../openweather/OpenWeatherContext'
 import TempIcon from '../assets/temp.svg'
 import WindIcon from '../assets/wind.svg'
-
+import RainIcon from '../assets/rain.svg'
+import Loading from './Loading'
 
 function Forecast() {
 
-    const { weather } = useContext(OpenWeatherContext)
+    const { weather, loading } = useContext(OpenWeatherContext)
     console.log({ weather })
     const date = new Date()
     const year = date.getFullYear()
@@ -26,19 +27,20 @@ function Forecast() {
     const precipitation = weather?.current?.precip_in ?? ''
     const visibility = weather?.current?.vis_miles ?? ''
 
-    if (weather) {
+    if (city && loading) {
+        return (
+            <Loading />
+        )
+    } else if (weather) {
         return (
 
-            <div className="card card-side bg-base-100 shadow-xl">
+            <div className="card card-side bg-base-200 shadow-xl ">
                 <div className="card-body">
                     <h2 className="card-title">{month} {day}, {year}</h2>
                     <p className="text-5xl pb-5">{city}, {state}</p>
-
                     <h3 className="text-4xl">{conditions} </h3>
                     <img src={forecastIcon} style={{ width: "70px" }} alt="" />
-
                     <div className="stats shadow">
-
                         <div className="stat">
                             <div className="stat-figure text-secondary">
                                 <img src={TempIcon} alt="temp icon" style={{ width: "50px" }} />
@@ -65,7 +67,7 @@ function Forecast() {
 
                         <div className="stat">
                             <div className="stat-figure">
-                                <img className="" src={TempIcon} alt="temp icon" style={{ width: "50px" }} />
+                                <img className="" src={RainIcon} alt="temp icon" style={{ width: "60px" }} />
                             </div>
                             <div className="stat-title">Precipitation</div>
                             <div className="stat-value">{precipitation}" last 24 hr </div>
@@ -73,19 +75,17 @@ function Forecast() {
                             <div className="stat-value">{visibility} mi</div>
                             <div className="stat-title">UV Index</div>
                             <div className="stat-value">{uv}</div>
-
                         </div>
-
                     </div>
-
-                    {/* <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Add To Favorites</button>
-                    </div> */}
                 </div>
             </div>
         )
     } else {
-        return (<div>Please Enter A City</div>)
+        return (<div className="card bg-base-200 shadow-xl">
+            <div className="card-body">
+                <h2>Please Enter a City. For greater accuracy enter the State as well.</h2>
+            </div>
+        </div>)
     }
 }
 
